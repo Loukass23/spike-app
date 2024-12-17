@@ -1,4 +1,4 @@
-import { Character } from "@/types/rickandmorty";
+import { Character } from "@/types";
 
 
 export default async function CharactersPage() {

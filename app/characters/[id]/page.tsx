@@ -1,4 +1,4 @@
-import { Character } from '@/types/rickandmorty'
+import { Character } from '@/types'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import React from 'react'

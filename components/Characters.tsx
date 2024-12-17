@@ -1,4 +1,4 @@
-import { Character } from '@/types/rickandmorty';
+import { Character } from '@/types';
 import Link from 'next/link';
 import React from 'react'
 
