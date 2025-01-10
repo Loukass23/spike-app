@@ -1,8 +1,9 @@
-"use client"; // CSR requires this directive
-
+"use client";
 import Characters from "@/components/Characters";
+// CSR requires this directive
+
 import { Character } from "@/types";
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
     const [characters, setCharacters] = useState<Character[]>([])
@@ -24,10 +25,8 @@ export default function Home() {
                 return <p className="text-2xl" key={character.id}>{character.name}</p>
             })}
 
-            {/* We cannot call a server component directly from a client component. Use suspense */}
-            {/* {characters ? <Characters characters={characters} /> :
-                <p>Characters Loading..</p>
-            } */}
+            {/* We cannot call a server component directly from a CSR page. */}
+            <Characters characters={characters} />
 
         </div>
     );

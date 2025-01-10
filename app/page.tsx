@@ -8,7 +8,6 @@ export default function Home() {
 
       <Link href="/characters">Static Site Generation</Link>
       <Link href="/client">Client Side Rendering</Link>
-      <Link href="/server">Server Side Rendering</Link>
       <Link href="/streaming">Server Side Streaming</Link>
 
     </div>
