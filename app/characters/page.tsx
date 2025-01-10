@@ -1,4 +1,5 @@
 import { Character } from "@/types";
+import Link from "next/link";
 
 
 export default async function CharactersPage() {
@@ -7,7 +8,7 @@ export default async function CharactersPage() {
     return (
         <ul>
             {characters.map((character) => (
-                <li key={character.id}>{character.name}</li>
+                <li key={character.id}><Link href={`/characters/${character.id}`}>{character.name} </Link></li>
             ))}
         </ul>
     );

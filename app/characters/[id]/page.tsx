@@ -24,7 +24,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ id: string }>
 }) {
-  const { id } = await params
+  const  id  = (await params).id
   const character = await getCharacter(id)
 
   return {
@@ -34,10 +34,19 @@ export async function generateMetadata({
 
 // Multiple versions of this page will be statically generated
 // using the `params` returned by `generateStaticParams`
-export default async function Page({ params }: { params: { id: string } }) {
-  const { id } = await params
+type tParams = Promise<{ id: string }>;
+export default async function Page({ params }: { params: tParams }) {
+  const { id } =  await params
+
+  if (!id) notFound()
+
   const response = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
-  const character = await response.json() as Character
+  const character = await response.json() as Character | { error: string }
+
+  if ('error' in character) {
+    notFound()
+  }
+ 
   return (
     <div>
       <h1>{character.name}</h1>

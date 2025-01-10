@@ -205,55 +205,6 @@ export default function CharacterLayout({
 One huge concept you're going to have to wrap your head around will be the different ways Next.js renders your components. Very soon, the newest version of React will also be introducing a stable way to apply much of this functionality.
 Next.js supports the following rendering strategies:
 
-### **Client-Side Rendering (CSR)**
-
-In this method:
-
-1. The **browser** downloads a blank HTML page.
-2. JavaScript runs on the **client side** to fetch data and generate content dynamically.
-
-```tsx
-"use client"; // CSR requires this directive
-
-import Characters from "@/components/Characters";
-import { Character } from "@/types";
-import { useState, useEffect } from "react";
-
-export default function Home() {
-  const [characters, setCharacters] = useState<Character[]>([]);
-
-  useEffect(() => {
-    async function fetchCharacters() {
-      const res = await fetch("https://rickandmortyapi.com/api/character");
-      const { results } = await res.json();
-      setCharacters(results);
-    }
-    fetchCharacters();
-  }, []);
-
-  return (
-    <div>
-      <h1>Client Side Rendering</h1>
-
-      {characters ? (
-        <Characters characters={characters} />
-      ) : (
-        <p>Characters Loading..</p>
-      )}
-    </div>
-  );
-}
-```
-
-- Benefits:
-
-  - Great for highly interactive, single-page applications.
-  - Reduces server load since rendering happens on the client.
-
-- Drawbacks:
-  - Slower initial load times since the browser must fetch and execute JavaScript.
-  - SEO can be challenging (though mitigated by tools like Next.js).
-
 ### **Static Rendering**
 
 Generates HTML during the **build process**. The resulting HTML is served as static files.
@@ -373,6 +324,55 @@ export default async function Page({ params }: { params: { id: string } }) {
   - Ideal for e-commerce, where product data changes periodically.
 
 ---
+
+### **Client-Side Rendering (CSR)**
+
+In this method:
+
+1. The **browser** downloads a blank HTML page.
+2. JavaScript runs on the **client side** to fetch data and generate content dynamically.
+
+```tsx
+"use client"; // CSR requires this directive
+
+import Characters from "@/components/Characters";
+import { Character } from "@/types";
+import { useState, useEffect } from "react";
+
+export default function Home() {
+  const [characters, setCharacters] = useState<Character[]>([]);
+
+  useEffect(() => {
+    async function fetchCharacters() {
+      const res = await fetch("https://rickandmortyapi.com/api/character");
+      const { results } = await res.json();
+      setCharacters(results);
+    }
+    fetchCharacters();
+  }, []);
+
+  return (
+    <div>
+      <h1>Client Side Rendering</h1>
+
+      {characters ? (
+        <Characters characters={characters} />
+      ) : (
+        <p>Characters Loading..</p>
+      )}
+    </div>
+  );
+}
+```
+
+- Benefits:
+
+  - Great for highly interactive, single-page applications.
+  - Reduces server load since rendering happens on the client.
+
+- Drawbacks:
+  - Slower initial load times since the browser must fetch and execute JavaScript.
+  - SEO can be challenging (though mitigated by tools like Next.js).
 
 ### **Dynamic Rendering**
 
