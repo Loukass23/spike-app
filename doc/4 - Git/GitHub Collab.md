@@ -37,7 +37,6 @@ The collaborative process in Git and GitHub involves multiple developers working
        - **Merge Commit**: Combines the feature branch into the main branch with a merge commit.
        - **Squash and Merge**: Combines all the commits in the feature branch into a single commit before merging.
        - **Rebase and Merge**: Re-applies the changes from the feature branch on top of the main branch, preserving a linear commit history.
-![Merge Strategies](./merge.png)
 
 ### 6. **Pulling Changes**
    - **Sync the Local Repository**: To keep the local repository up to date with the latest changes from the main branch, developers regularly pull the changes:
