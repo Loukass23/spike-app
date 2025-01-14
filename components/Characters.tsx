@@ -7,7 +7,7 @@ import Image from 'next/image'
 async function Characters({ characters }: { characters: Character[] }) {
   return (
     <div>
-      <h2>Characters:</h2>
+      <h2>changing:</h2>
       <ul>
         {characters.map((character) => {
           return <li key={character.id}>
