@@ -5,7 +5,6 @@ export default function Home() {
     <div className="grid items-center justify-items-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
 
       <h1 className="text-3xl">Next.js and Git</h1>
-      <h2>Git workflow</h2>
 
 
       <Link href="/characters">Static Site Generation</Link>
