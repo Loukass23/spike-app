@@ -10,6 +10,7 @@ async function Characters({ characters }: { characters: Character[] }) {
       <ul>
         {characters.map((character) => {
           return <li key={character.id}>
+            <p>foo</p>
             <Link href={`/characters/${character.id}`}>{character.name}</Link>
           </li>
         })}
