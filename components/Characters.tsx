@@ -6,7 +6,7 @@ import React from 'react'
 async function Characters({ characters }: { characters: Character[] }) {
   return (
     <div>
-      <h2>Characters:</h2>
+      <h2>Death Row Inmates</h2>
       <ul>
         {characters.map((character) => {
           return <li key={character.id}>
