@@ -1,6 +1,7 @@
 import { Character } from '@/types';
 import Link from 'next/link';
 import React from 'react'
+import Image from 'next/image'
 
 
 async function Characters({ characters }: { characters: Character[] }) {
@@ -10,7 +11,7 @@ async function Characters({ characters }: { characters: Character[] }) {
       <ul>
         {characters.map((character) => {
           return <li key={character.id}>
-            <p>foo</p>
+            <Image src={character.image} alt={character.name} width={300} height={300} />
             <Link href={`/characters/${character.id}`}>{character.name}</Link>
           </li>
         })}
